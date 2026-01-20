@@ -1,22 +1,22 @@
 /* ======= data (replace / extend as needed) ======= */
 const items = [
-  { day: [4, 2025], title: "Dad and his lovely Wife", subtitle: "This must have happened after church hehe.", img: "/images/1.jpg" },
-  { day: [12, 2024], title: "Gloria's 2nd Birthday", subtitle: "More and more cakes to come...", img: "/images/2.jpg" },
-  { day: [12, 2024], title: "Another Vacation at Lagos", subtitle: "Dad and the boys out to the zenith roundabout in lagos.", img: "/images/3.jpg" },
-  { day: [6, 2020], title: "Baby Gloria Pre-Birth.", subtitle: "Dad was soooooooo happy when he found out she was a girl.", img: "/images/4.jpg" },
-  { day: [9, 2020], title: "Dad and Baby Charis Spending Quality Time.", subtitle: "Ahh this feels js like yesterday.", img: "/images/5.jpg" },
-  { day: [4, 2023], title: "Dad, Enoch and Charis", subtitle: "Aww charis couldn't roll hs tongue here...", img: "/images/6.jpg" },
-  { day: ["?","?"], title: "Dad taking a nap.", subtitle: "After a lonnnnnng day fixing things and coming from an even. He rested.", img: "/images/7.jpg" },
-  { day: [2, 2024], title: "Dad and baby Gloria.", subtitle: "Look at her chubby cheeks. I think I still saw this carrier recently.",  img: "/images/8.jpg" },
-  { day: [6, 2024], title: "Dad and Victor.", subtitle: "I was forced to take this picture. T-T",  img: "/images/9.jpg" },
-  { day: [6, 2024], title: "Dad and Gloria yet again.", subtitle: "Having fun playing with dad I see...",  img: "/images/10.jpg" },
-  { day: [12, 2024], title: "Dad in Abuja for a vacation hehe.", subtitle: "Where were the boys here? probably playing with their cousins somewhere...",  img: "/images/11.jpg" },
-  { day: [3, 2025], title: "Dad in kokodome.", subtitle: "Ah i remember we wanted to swim but didn't end up doing that. Thanks for the food dad.",  img: "/images/12.jpg" },
-  { day: [1, 2026], title: "Dad \" processing \" the turkey with The boys", subtitle: "Ah so now we know how to \"process\" chickens...",  img: "/images/13.jpg" },
-  { day: ["?", 2003], title: "About to get married?", subtitle: "Smile joor iya david.",  img: "/images/14.jpg" },
-  { day: [10, 2008], title: "A new family. Cute!", subtitle: "With my cute chubby cheeks :P",  img: "/images/15.jpg" },
-  { day: ["?", 2025], title: "Supporting Mom w that new vid", subtitle: "Hehehe the music was peak frfr.",  img: "/images/16.jpg" },
-  { day: [12, 2024], title: "Dad and his Twin", subtitle: "Heheheheheh.", img: "/images/17.jpg" },
+  { day: [4, 2025], title: "Dad and his lovely Wife", subtitle: "This must have happened after church hehe.", img: "images/1.jpg" },
+  { day: [12, 2024], title: "Gloria's 2nd Birthday", subtitle: "More and more cakes to come...", img: "images/2.jpg" },
+  { day: [12, 2024], title: "Another Vacation at Lagos", subtitle: "Dad and the boys out to the zenith roundabout in lagos.", img: "images/3.jpg" },
+  { day: [6, 2020], title: "Baby Gloria Pre-Birth.", subtitle: "Dad was soooooooo happy when he found out she was a girl.", img: "images/4.jpg" },
+  { day: [9, 2020], title: "Dad and Baby Charis Spending Quality Time.", subtitle: "Ahh this feels js like yesterday.", img: "images/5.jpg" },
+  { day: [4, 2023], title: "Dad, Enoch and Charis", subtitle: "Aww charis couldn't roll hs tongue here...", img: "images/6.jpg" },
+  { day: ["?","?"], title: "Dad taking a nap.", subtitle: "After a lonnnnnng day fixing things and coming from an even. He rested.", img: "images/7.jpg" },
+  { day: [2, 2024], title: "Dad and baby Gloria.", subtitle: "Look at her chubby cheeks. I think I still saw this carrier recently.",  img: "images/8.jpg" },
+  { day: [6, 2024], title: "Dad and Victor.", subtitle: "I was forced to take this picture. T-T",  img: "images/9.jpg" },
+  { day: [6, 2024], title: "Dad and Gloria yet again.", subtitle: "Having fun playing with dad I see...",  img: "images/10.jpg" },
+  { day: [12, 2024], title: "Dad in Abuja for a vacation hehe.", subtitle: "Where were the boys here? probably playing with their cousins somewhere...",  img: "images/11.jpg" },
+  { day: [3, 2025], title: "Dad in kokodome.", subtitle: "Ah i remember we wanted to swim but didn't end up doing that. Thanks for the food dad.",  img: "images/12.jpg" },
+  { day: [1, 2026], title: "Dad \" processing \" the turkey with The boys", subtitle: "Ah so now we know how to \"process\" chickens...",  img: "images/13.jpg" },
+  { day: ["?", 2003], title: "About to get married?", subtitle: "Smile joor iya david.",  img: "images/14.jpg" },
+  { day: [10, 2008], title: "A new family. Cute!", subtitle: "With my cute chubby cheeks :P",  img: "images/15.jpg" },
+  { day: ["?", 2025], title: "Supporting Mom w that new vid", subtitle: "Hehehe the music was peak frfr.",  img: "images/16.jpg" },
+  { day: [12, 2024], title: "Dad and his Twin", subtitle: "Heheheheheh.", img: "images/17.jpg" },
 ];
 
 /* ======= DOM refs ======= */
@@ -183,7 +183,10 @@ I pray that the lord will continue to be your strength, the lord will continue t
 Happy birthday sir, I hope you enjoy your day and eat PLENTY of cake.
 Enjoy you great new year IJN!!!
   ` },
-  { name: "David", text: `` },
+  { name: "David", text: `
+Happy Birthday, Dad.
+From your first son, thank you for every sacrifice, every provision, and every quiet way you’ve made sure our family never lacked. I’m deeply grateful for your hard work, wisdom, and constant love. I pray that God blesses you with long life, good health, renewed strength, and peace in all you do. May your hands never lack, your efforts always bear fruit, and your heart be filled with joy. Thank you for being our provider, our teacher, and our example. We love you.
+  ` },
 ];
 
 const container = document.getElementById('peopleContainer');
