@@ -40,7 +40,7 @@
                 The best father ever...</h2>
         </div>
     </div>
-    <div style="color: white;" class="montserrat-text">
+    <div class="montserrat-text">
         <div style="display: flex; flex-direction: row;
                 justify-content: center; margin-top: 20px; gap: 5px;">
             <h1 style="margin: 0px;">JAN</h1>
@@ -71,10 +71,10 @@
                 </div>
                 <div class="holderx">
                     <h2 style="
-                        text-align: center;
+                        text-align: center; color: white;
                         " id="bigCardTitle"></h2>
                     <h4 style="
-                        text-align: center; font-weight: normal; font-size: 10px;
+                        text-align: center; font-weight: normal; font-size: 10px; color: white;
                         " id="bigCardSubTitle"></h4>
                 </div>
             </div>
@@ -89,13 +89,53 @@
             <div class="thumbs" id="thumbs"></div>
           </div>
         </div>
+
+        <div style="background-color: orange; width: max-content; border-radius: 20px; display: flex; flex-direction: row;
+                justify-content: center; gap: 5px; margin: 0 auto; margin-top: 20px; padding: 0px 10px;">
+            <h3 style="margin: 0px; font-size: 15px;">DAD'S FACTS</h3>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; flex-direction: row; justify-content: center;">
+            <button style="width: 200px; height: 50px; border-radius: 10px; background-color: #44DDAA; padding: 5px;" id="revealBtn">Click To Compile Facts</button>
+
+            <div class="progress-container" id="progressBox">
+              <div class="progress-bar" id="progressBar"></div>
+              <h2 style="color: white; margin-bottom: 20px; text-align: center;" id="progressBarText"></h2>
+            </div>
+        </div>
+
+        <div class="secret" id="secretContent">
+            <div class="console">
+              <header>
+                <p>CompiledFacts@Dad</p>
+              </header>
+              <div style="font-size: 20px;" class="consolebody">
+                  <div style="position: sticky;
+                  background: linear-gradient(to top, rgba(0,0,0,1.0), rgba(0,0,0,0.7), transparent, transparent);
+                  width: 100%;
+                  top: 70%;
+                  height: 40%; z-index: 10;"></div>
+                  <ul style="position: absolute; top: 0%; padding: 20px;">
+                      <li>Dad loves to fix things, but why?<br> Because he loves his family. he fixes things so that his family can have the best he can provide.</li>
+                      <li>Dad loves to cook. Every single time he cooks something, it's always a dish to remember. Not trying to shade anybody, but you really have to try my Dad's cooking, It's the best!</li>
+                      <li>Dad is SUPER Hardworking. <br>I've never seen dad skipping on any form of work or postponing jobs unnecessarily without ever doing it. This is a virtue we hope to achieve one day. To become like dad!</li>
+                      <li>He doesn't like working alone. <br>Almost every time dad wants to do something he calls Victor, David and sometimes Enoch, Is this because he wants to teach us something, or he loves our company? Either ways we enjoy it most of the time.</li>
+                      <li>He's always eager to learn. <br>Anytime he sees me and david doing something he hasn't seen before, he always asks us to teach him. for an adult this is a rare trait as most adults seem to think they "know it ll".</li>
+                      <li>He's the best father EVER! <br>This speaks for itself, no questions asked.</li>
+                      <br>
+                      <br>
+                      <br>
+                  </ul>
+              </div>
+            </div>
+        </div>
+
         <div style="background-color: orange; width: max-content; border-radius: 20px; display: flex; flex-direction: row;
                 justify-content: center; gap: 5px; margin: 0 auto; margin-top: 20px; padding: 0px 10px;">
             <h3 style="margin: 0px; font-size: 15px;">EACH OF US HAS SOMETHING TO SAY...</h3>
         </div>
         <div id="peopleContainer" class="people-grid"></div>
     </div>
-    <div style="height: 50vh;"></div>
 </body>
 <script src="carousel.js"></script>
 <script>
@@ -153,5 +193,43 @@
 
       parent.appendChild(circle)
     }
+</script>
+<script>
+    const btn = document.getElementById("revealBtn");
+    const progressBox = document.getElementById("progressBox");
+    const progressBar = document.getElementById("progressBar");
+    const progressBarText = document.getElementById("progressBarText");
+    const secret = document.getElementById("secretContent");
+
+    btn.addEventListener("click", () => {
+      btn.disabled = true;
+      btn.className = "secret"
+      progressBox.style.display = "block";
+
+      let progress = 0;
+
+      const interval = setInterval(() => {
+        progress += 0.2;
+        progressBar.style.width = progress + "%";
+
+        if (progress > 20) {
+            progressBarText.textContent = "Warming up...";
+        }
+        if (progress > 40) {
+            progressBarText.textContent = "Finding Hidden Facts...";
+        }
+        if (progress > 60) {
+            progressBarText.textContent = "Crunching data up...";
+        }
+        if (progress > 70) {
+            progressBarText.textContent = "Almost There";
+        }
+        if (progress >= 100) {
+          clearInterval(interval);
+          progressBox.style.display = "none";
+          secret.style.display = "block";
+        }
+      }, 40); // ~2 seconds
+    });
 </script>
 </html>

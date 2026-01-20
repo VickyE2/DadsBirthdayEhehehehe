@@ -190,7 +190,8 @@ const container = document.getElementById('peopleContainer');
 
 peopleData.forEach(person => {
   const card = document.createElement('div');
-  card.className = 'people-card';
+  card.className = 'post-it people-card';
+  bigCard.style.backgroundColor = ""
   card.innerHTML = `
     <h3 class="noto-sans-display-font" style="text-transform: capital;">from - ${person.name}</h3>
     <p class="montserrat-text" style="padding-left: 10px;">${person.text.replace(/\n/g, "<br>")}</p>

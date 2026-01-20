@@ -34,6 +34,123 @@ body {
     border: 0px;
     border-radius: 50%;
 }
+.post-it {
+  position:relative;
+  background:#ffa;
+  overflow:hidden;
+  margin:30px auto;
+  padding:20px;
+  border-radius:0 0 0 30px/45px;
+  box-shadow:
+    inset 0 -40px 40px rgba(0,0,0,0.2),
+    inset 0 25px 10px rgba(0,0,0,0.2),
+    0 5px 6px 5px rgba(0,0,0,0.2);
+  font-family: 'Permanent Marker', cursive;
+  line-height:1.7em;
+  font-size:19px;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+  color:#130d6b;
+}
+
+.post-it li {
+ 	cursor:pointer;
+}
+
+.post-it:before {
+ 	content:"";
+  display:block;
+  position:absolute;
+  width:20px;
+  height:25px;
+  background:#ffa;
+  box-shadow:
+    3px -2px 10px rgba(0,0,0,0.2),
+    inset 15px -15px 15px rgba(0,0,0,0.3);
+  left:0;
+  bottom:0;
+  z-index:2;
+  transform:skewX(25deg);
+}
+
+.post-it:after {
+ 	content:"";
+  display:block;
+  position:absolute;
+  width:75%;
+  height:20px;
+  border-top:3px solid #130d6b;
+  border-radius: 50% ;
+  bottom:0px;
+  left:10%;
+}button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.progress-container {
+  width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 12px;
+  display: none;
+}
+
+.progress-bar {
+  height: 14px;
+  width: 0%;
+  background: linear-gradient(90deg, #4caf50, #8bc34a);
+  transition: width 0.1s linear;
+}
+
+.secret {
+  display: none;
+  margin-top: 20px;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.console {
+  font-family: 'Fira Mono';
+  width: 700px;
+  height: 450px;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.console header {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #555;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  color: #DDD;
+}
+
+.console .consolebody {
+  position: relative;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-sizing: border-box;
+  padding: 20px;
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+  overflow-x: clip;
+  background-color: #000;
+  color: #63de00;
+}
+
+.console .consolebody p {
+  line-height: 1.5rem;
+}
 .bottom-center {
   position: absolute;
 
@@ -145,9 +262,6 @@ padding-bottom: 18px;
 .people-card {
   background: #1e0e3e;
   color: #fff;
-  border-radius: 10px;
-  padding: 8px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -156,13 +270,6 @@ padding-bottom: 18px;
 
 .people-card:hover {
   transform: translateY(-4px);
-}
-
-/* medium screens: 2 columns */
-@media (min-width: 600px) {
-  .people-grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* slight scale on active - it's always active, so keep gentle transform on hover for polish */
