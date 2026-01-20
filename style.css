@@ -1,7 +1,6 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-    min-height: 100vh;
     background: #100721;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Ubuntu", sans-serif;
     background-color: #333355;
@@ -28,7 +27,7 @@ body {
     "wdth" 100;
 }
 .main-card {
-    height: 50vh;
+    height: 30vh;
     overflow: clip;
 }
 .circle {
@@ -40,7 +39,7 @@ body {
 
   anchor: bottom-left;
   left: 50%;
-  bottom: 70%;          /* push it down halfway */
+  bottom: 60%;          /* push it down halfway */
   transform: translateX(-50%);
 }
 .sphere-container {
@@ -163,13 +162,6 @@ padding-bottom: 18px;
 @media (min-width: 600px) {
   .people-grid {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-/* large screens: 3 columns */
-@media (min-width: 900px) {
-  .people-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 

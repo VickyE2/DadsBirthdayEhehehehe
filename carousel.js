@@ -151,7 +151,8 @@ function centerSelectedThumb() {
 
 
 const peopleData = [
-  { name: "Enoch", text: `From Enoch
+  { name: "Enoch", text: `
+From Enoch
 To the Man of the house, our celebrant—dad
 
 Happy Birthday to you Daddy. Gosh, we thank God for such a wonderful father like you. On this special day we want to look back and thank you for such a mighty force you have been towards the growth of this family. You mean much more than a mechanical engineer at work, more the engineer of your home
@@ -172,7 +173,16 @@ You will only grow greater and greater as you age like fine wine. With long life
 
 ...we wish you many happy returns, sir, long life and prosperity—hip hip hip, hurry!
 Daddy, go forth and enjoy your new year` },
-  { name: "Victor", text: `` },
+  { name: "Victor", text: `
+Happy Birthday Dad!
+
+Long life and prosperity. It is with great honor for me to have you as my father.
+Thank you for the many teaching you've given me sir, from how to install an inverter to making the perfect eggs for eating bread (not to soggy or dry) to how to paint the walls of a how to how to be a responsible and cultured man.
+I pray that the lord will continue to be your strength, the lord will continue to strengthen you and you will live to see you children's children up to the forth generation and even more as Jesus tarries.
+
+Happy birthday sir, I hope you enjoy your day and eat PLENTY of cake.
+Enjoy you great new year IJN!!!
+  ` },
   { name: "David", text: `` },
 ];
 
