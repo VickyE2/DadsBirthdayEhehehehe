@@ -1,0 +1,272 @@
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    min-height: 100vh;
+    background: #100721;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Ubuntu", sans-serif;
+    background-color: #333355;
+    margin: 0px;
+}
+.montserrat-text {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.edu-nsw-act-cursive-text {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-optical-sizing: auto;
+  font-weight: 1000;
+  font-style: normal;
+}
+.noto-sans-display-font {
+  font-family: "BoldThickFont", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 1000;
+  font-variation-settings:
+    "wdth" 100;
+}
+.main-card {
+    height: 50vh;
+    overflow: clip;
+}
+.circle {
+    border: 0px;
+    border-radius: 50%;
+}
+.bottom-center {
+  position: absolute;
+
+  anchor: bottom-left;
+  left: 50%;
+  bottom: 70%;          /* push it down halfway */
+  transform: translateX(-50%);
+}
+.sphere-container {
+    animation: orbit random(2s, 5s) linear infinite;
+    transform-origin: center;
+}
+.scale-able {
+    aspect-ratio: 1/1;
+    position: fixed;
+}
+
+:root {
+--bg: #100721;
+--gap: 12px;
+--thumb-width: 130px;
+--thumb-height: 86px;
+--stage-height: 320px;
+--big-width: 520px;
+--big-height: 320px;
+}
+
+.carousel-wrap {
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.carousel-wrap{
+    display:grid;
+    width:100%;
+    max-width:1100px;
+    // background:linear-gradient(180deg,#0b0620 0%, rgba(20,10,40,0.5) 100%);
+    // box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    padding: 18px;
+    border-radius:14px;
+}
+
+.controls {
+    display:flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom:10px;
+    padding: 0px 30px;
+}
+.btn {
+    background: rgba(255,255,255,0.06);
+    border:0;
+    color:#fff;
+    padding:8px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* Stage (top area) where the big centered preview sits */
+.stage {
+height: var(--stage-height);
+display:flex;
+align-items:flex-end; /* big preview anchors slightly above thumbs */
+justify-content:center;
+flex-wrap: wrap;
+position:relative;
+overflow:visible;
+padding-bottom: 18px;
+}
+
+.big-card {
+    border-radius:14px;
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat; /* avoids tiling */
+    box-shadow: 0 22px 60px rgba(20,8,60,0.6);
+    transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .3s;
+    transform-origin: center bottom;
+    border:1px solid rgba(255,255,255,0.06);
+    transition: background-size 0.3s ease, transform 0.3s ease;
+}
+.holderx {
+    border-radius:14px;
+    background: linear-gradient(to top, #000000FF, #00000000, #00000000, #000000FF);
+    width: var(--big-width);
+    height: var(--big-height);
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    padding-bottom: 10px;
+}
+
+.people-grid {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 12px;
+
+  /* single column default */
+  grid-template-columns: 1fr;
+}
+
+.people-card {
+  background: #1e0e3e;
+  color: #fff;
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.people-card:hover {
+  transform: translateY(-4px);
+}
+
+/* medium screens: 2 columns */
+@media (min-width: 600px) {
+  .people-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* large screens: 3 columns */
+@media (min-width: 900px) {
+  .people-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* slight scale on active - it's always active, so keep gentle transform on hover for polish */
+.big-card:hover { transform: translateY(-6px) scale(1.02); }
+
+/* Thumbnail strip at the bottom */
+.thumbs-wrap {
+  width: 100%;
+  overflow: hidden;              /* hard cap to parent width */
+}
+
+.thumbs {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding: 12px 6px;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+
+  /* UX polish */
+  scrollbar-width: none;         /* Firefox */
+}
+.thumbs::-webkit-scrollbar {
+  display: none;                 /* Chrome/Safari */
+}
+
+.thumbs {
+    justify-content: center; cursor: grab; }
+.thumbs.dragging { cursor: grabbing; }
+
+.thumb {
+flex: 0 0 var(--thumb-width);
+width: var(--thumb-width);
+height: var(--thumb-height);
+border-radius: 10px;
+background-size: cover;
+background-position: center;
+cursor: pointer;
+transition: transform .35s, box-shadow .35s, filter .35s;
+box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+border: 2px solid transparent;
+}
+
+/* visual for the selected thumbnail (bigger + border + raised) */
+.thumb.selected {
+transform: translateY(-12px) scale(1.06);
+box-shadow: 0 20px 40px rgba(80,40,160,0.35);
+border-color: rgba(180,140,255,0.75);
+filter: saturate(1.06) contrast(1.02);
+}
+
+/* minor responsive */
+@media (max-width:900px){
+:root{ --big-width: 420px; --big-height: 260px; --thumb-width:110px; --thumb-height:72px; }
+.stage{ height: 260px; }
+}
+@media (max-width:520px){
+:root{ --big-width: 320px; --big-height: 220px; --thumb-width:92px; --thumb-height:64px; }
+.carousel-wrap{ padding:12px; }
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(random(360deg, 720deg)); }
+}
+
+@font-face {
+  font-family: 'BoldThickFont';
+  src: url('/fonts/Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CursiveFont';
+  src: url('/fonts/Cursive.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CursiveFont';
+  src: url('/fonts/Cursive-Thin.ttf') format('truetype');
+  font-weight: 100;
+}
+@font-face {
+  font-family: 'HollowFont';
+  src: url('/fonts/Hollow.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

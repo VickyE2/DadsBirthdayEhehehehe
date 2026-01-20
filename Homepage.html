@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Sir</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,349;1,349&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+</head>
+<body>
+    <div style="background-image: linear-gradient(to left, #9999AA, #BBBBCC);" class="main-card">
+        <div id="circle-holder" style="
+            position: relative;
+            filter: blur(10px);
+            width: 100%;
+            height: 100%;
+            overflow: clip;
+        "></div>
+        <div class="circle bottom-center" style="
+            backdrop-filter: blur(30px);
+            background-color: none;
+            position: relative;
+            width: 300px;
+            aspect-ratio: 1/1;
+            box-shadow: 1px 10px 30px;
+            border: 1px silver solid;
+            text-align: center;
+            padding: 30px;
+        ">
+            <h1 class="montserrat-text" style="font-size: 30px; color: #CC0077; margin-bottom: 0px;">
+                HAPPY</h1>
+            <h1 class="noto-sans-display-font" style="color: white; font-size: 40px; margin: 0px; padding: 0px;">
+                BIRTHDAY</h1>
+            <h1 class="noto-sans-display-font" style="color: white; font-size: 40px; margin: 0px; padding: 0px;">
+                TO YOU</h1>
+            <h2 style="font-family: CursiveFont; font-weight: 100; color: #CC0077; margin: 0px;">
+                The best father ever...</h2>
+        </div>
+    </div>
+    <div style="color: white;" class="montserrat-text">
+        <div style="display: flex; flex-direction: row;
+                justify-content: center; margin-top: 20px; gap: 5px;">
+            <h1 style="margin: 0px;">JAN</h1>
+            <h1 style="margin: 0px;">•</h1>
+            <h1 style="margin: 0px;">20</h1>
+        </div>
+        <div style="display: flex; flex-direction: row;
+                justify-content: center; gap: 5px;">
+            <h1 style="margin: 0px; font-size: 20px;">•</h1>
+            <h1 style="margin: 0px; font-size: 20px;">2020</h1>
+            <h1 style="margin: 0px; font-size: 20px;">•</h1>
+        </div>
+        <div style="background-color: orange; width: max-content; border-radius: 20px; display: flex; flex-direction: row;
+                justify-content: center; gap: 5px; margin: 0 auto; margin-top: 20px; padding: 0px 10px;">
+            <h3 style="margin: 0px; font-size: 15px;">A slide show of past and recent events</h3>
+        </div>
+        <div class="carousel-wrap" id="carouselWrap">
+
+          <div class="stage" id="stage">
+            <div class="big-card" id="bigCard" role="img" aria-label="Selected image">
+                <div style="position: relative; right: -35%; top: 20px;
+                            display: flex; flex-direction: row; height: 0px;
+                            justify-content: center; align-items: center;
+                            ">
+                    <h2 id="day" style="color:#AA0000;">3</h2>
+                    <h2 style="color:#AA5500;">|</h2>
+                    <h2 id="month" style="color:white;">5</h2>
+                </div>
+                <div class="holderx">
+                    <h2 style="
+                        text-align: center;
+                        " id="bigCardTitle"></h2>
+                    <h4 style="
+                        text-align: center; font-weight: normal; font-size: 10px;
+                        " id="bigCardSubTitle"></h4>
+                </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <button class="btn" id="prevBtn" aria-label="previous">◀</button>
+            <button class="btn" id="nextBtn" aria-label="next">▶</button>
+          </div>
+
+          <div class="thumbs-wrap">
+            <div class="thumbs" id="thumbs"></div>
+          </div>
+        </div>
+        <div style="background-color: orange; width: max-content; border-radius: 20px; display: flex; flex-direction: row;
+                justify-content: center; gap: 5px; margin: 0 auto; margin-top: 20px; padding: 0px 10px;">
+            <h3 style="margin: 0px; font-size: 15px;">EACH OF US HAS SOMETHING TO SAY...</h3>
+        </div>
+        <div id="peopleContainer" class="people-grid"></div>
+    </div>
+</body>
+<script src="carousel.js"></script>
+<script>
+    const COUNT = 10   // 👈 set number here
+    const gradients = [
+      // 🔴 Reds
+      ['#ff4d4d', '#c91818'],
+      ['#ff6a3d', '#b83219'],
+
+      // 🔵 Blues
+      ['#4d8dff', '#1f4fbf'],
+      ['#3aa0ff', '#0066cc'],
+
+      // 🟠 Oranges
+      ['#ffb347', '#ff7a18'],
+      ['#ff9f1c', '#e85d04'],
+
+      // 💗 Reddish Pink
+      ['#ff5fa2', '#c9184a'],
+      ['#ff6fb1', '#d63384'],
+
+      // 🟣 Purples
+      ['#9b5de5', '#5f0fcb'],
+      ['#7b2cbf', '#3c096c']
+    ]
+
+    function randomColor() {
+      const h = Math.floor(Math.random() * 360)
+      return `hsl(${h}, 70%, 55%)`
+    }
+    const parent = document.getElementById('circle-holder')
+
+    for (let i = 0; i < COUNT; i++) {
+      const circle = document.createElement('div')
+      circle.className = 'circle scale-able'
+
+      // 🎨 Pick a gradient
+      const [c1, c2] = gradients[
+        Math.floor(Math.random() * gradients.length)
+      ]
+
+      // 🌞 Random light position
+      const x = Math.floor(Math.random() * 100)
+      const y = Math.floor(Math.random() * 100)
+
+      circle.style.background =
+        `radial-gradient(circle at ${x}% ${y}%, ${c1}, ${c2})`
+
+      // 📏 Random size & position
+      const size = Math.random() * 0.5 + 0.2
+      circle.style.width = `${size * 30}%`
+      circle.style.aspectRatio = 1/1
+      circle.style.left = `${Math.random() * 100}%`
+      circle.style.top = `${Math.random() * 100}%`
+
+      parent.appendChild(circle)
+    }
+</script>
+</html>
